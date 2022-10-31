@@ -16,7 +16,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        
+
         if id is not None:
             self.id = id
         else:
@@ -47,8 +47,6 @@ class Base:
             else:
                 list_dicts = [o.to_dictionary() for o in list_objs]
                 jsonfile.write(Base.to_json_string(list_dicts))
-                
-
 
     @staticmethod
     def from_json_string(json_string):
@@ -64,7 +62,3 @@ class Base:
             return "[]"
         else:
             return json.loads(json_string)
-
-
-
-
