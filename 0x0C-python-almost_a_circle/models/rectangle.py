@@ -2,7 +2,7 @@
 """
     Class Rectangle
 """
-from base import Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -108,6 +108,7 @@ class Rectangle(Base):
         """Return the area of the Rectangle"""
         return self.__width * self.__height
 
+
     def display(self):
         """Print the Rectangle instance with the character `#`"""
 
@@ -122,13 +123,9 @@ class Rectangle(Base):
         """Return the str() representation of Rectangle"""
         return (f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}")
 
-    def update(self, *args):
-        for arg in args:
-            pass
 
     def to_dictionary(self):
         """returns the dictionary representation of a Rectangle"""
-
         return {
             "id": self.id,
             "width": self.width,
