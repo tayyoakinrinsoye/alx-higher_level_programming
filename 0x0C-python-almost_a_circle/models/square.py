@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a square class"""
-from rectangle import Rectangle
+from models.rectangle import Rectangle
+
 
 class Square(Rectangle):
     """Represents a square."""
@@ -34,7 +35,6 @@ class Square(Rectangle):
             "x": self.x,
             "y": self.y
         }
-
 
     def __str__(self):
         """Return the str() representation of Rectangle"""
