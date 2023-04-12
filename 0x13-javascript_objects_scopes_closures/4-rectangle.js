@@ -17,9 +17,9 @@ class Rectangle {
             pattern = '';
         }
     }
+
     rotate() {
         [this.height, this.width] = [this.width, this.height];
-
     }
 
     double() {
