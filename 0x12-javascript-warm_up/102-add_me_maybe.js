@@ -1,5 +1,5 @@
 #!/usr/bin/node
-exports.addMayBe = function (number, theFunction) {
-  number++;
-  theFunction(number);
+export function addMayBe(number, theFunction) {
+    number++;
+    theFunction(number);
 };
