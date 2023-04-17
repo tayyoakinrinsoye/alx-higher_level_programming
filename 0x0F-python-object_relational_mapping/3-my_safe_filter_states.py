@@ -14,7 +14,7 @@ if __name__ == "__main__":
         password=argv[2], database=argv[3])
     state_name = argv[4]
     cursor = db.cursor()
-    query = "SELECT * FROM states WHERE name LIKE BINARY '{}' \
+    query = "SELECT * FROM states WHERE name LIKE BINARY %s \
             ORDER BY id ASC"
     cursor.execute(query, state_name)
 
