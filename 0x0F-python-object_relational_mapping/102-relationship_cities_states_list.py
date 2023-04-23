@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 """
-Script that lists all State objects, and corresponding City objects,
-contained in the database hbtn_0e_101_usa
+Script that lists all City objects from the database hbtn_0e_101_usa
 """
 
 from sys import argv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from relationship_state import Base, State
-from relationship_city import City
+from relationship_state import State
+from relationship_city import City, Base
 
 
 if __name__ == '__main__':
@@ -26,11 +25,11 @@ if __name__ == '__main__':
     # Create session
     Session = sessionmaker(bind=engine)
     session = Session()
-    # Query database
-    query = session.query(State).order_by(State.id)
-    for state in query.all():
-        print("{}: {}".format(state.id, state.name))
-        for city in state.cities:
-            print("\t{}: {}".format(city.id, city.name))
-    session.commit()
+
+    # Query database and print results
+    query = session.query(City).order_by(City.id)
+    for city in query.all():
+        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
+
+    # Close session
     session.close()
