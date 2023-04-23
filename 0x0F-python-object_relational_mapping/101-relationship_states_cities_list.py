@@ -21,12 +21,15 @@ if __name__ == '__main__':
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(user_name, passwd, db_name))
 
+    Base.metadata.create_all(engine)
+
+    # Create session
     Session = sessionmaker(bind=engine)
     session = Session()
-    # Query database and print results
+    # Query database
     query = session.query(State).order_by(State.id)
     for state in query.all():
         print("{}: {}".format(state.id, state.name))
         for city in state.cities:
-            print("f\t{city.id}: {city.name}")
+            print("\t{}: {}".format(city.id, city.name))
     session.close()
