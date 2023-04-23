@@ -4,18 +4,18 @@ Script that lists all State objects, and corresponding City objects,
 contained in the database hbtn_0e_101_usa
 """
 
-import sys
+from sys import argv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from relationship_state import State
-from relationship_city import City, Base
+from relationship_state import Base, State
+from relationship_city import City
 
 
 if __name__ == '__main__':
     # Get MySQL credentials from command line arguments
-    user_name = sys.argv[1]
-    passwd = sys.argv[2]
-    db_name = sys.argv[3]
+    user_name = argv[1]
+    passwd = argv[2]
+    db_name = argv[3]
 
     # Create SQLAlchemy engine
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
@@ -32,4 +32,5 @@ if __name__ == '__main__':
         print("{}: {}".format(state.id, state.name))
         for city in state.cities:
             print("\t{}: {}".format(city.id, city.name))
+    session.commit()
     session.close()
