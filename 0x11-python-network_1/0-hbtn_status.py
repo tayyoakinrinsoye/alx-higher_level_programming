@@ -5,9 +5,9 @@ fetches https://intranet.hbtn.io/status.
 
 
 if __name__ == '__main__':
-    import urllib.request
+    from urllib.request import urlopen
 
-    with urllib.request.urlopen('https://intranet.hbtn.io/status') as resp:
+    with urlopen('https://intranet.hbtn.io/status') as resp:
         content = resp.read()
         print("Body response:")
         print("\t- type: {}".format(type(content)))
