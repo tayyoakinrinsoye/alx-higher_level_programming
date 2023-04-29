@@ -9,5 +9,5 @@ from sys import argv
 if __name__ == '__main__':
     req = requests.get(argv[1])
     status = req.status_code
-    print(req.text) if status < 400 else print(\
+    print(req.text) if status < 400 else print(
         f"Error code: {req.status_code}")
