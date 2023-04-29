@@ -8,9 +8,9 @@ from sys import argv
 
 if __name__ == '__main__':
     if len(argv) == 2:
-    letter = argv[1]
+        letter = argv[1]
     else:
-    letter = ""
+        letter = ""
 
     url = 'http://0.0.0.0:5000/search_user'
     req = requests.post(url, data={'q': letter})
